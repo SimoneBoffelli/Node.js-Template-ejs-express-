@@ -1,0 +1,19 @@
+{
+  "name": "express-ejs-template",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "ejs": "^3.1.9",
+    "express": "^5.0.0",
+    "express-ejs-layouts": "^2.5.1",
+    "mysql2": "^3.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
