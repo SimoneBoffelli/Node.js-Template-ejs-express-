@@ -1,8 +1,4 @@
-
-import dotenv from "dotenv";// selezione env file
-dotenv.config({ path: process.env.NODE_ENV === 'production' ? '.env.prod' : '.env.dev' });
-console.log("ENV FILE LETTO:", process.env.DB_USER);
-
+import dotenv from "dotenv"; // selezione env file
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -10,6 +6,10 @@ import homeRoutes from "./routes/homeRoutes.js";
 import dbRoutes from "./routes/dbRoutes.js";
 import expressLayouts from "express-ejs-layouts";
 
+dotenv.config({
+  path: process.env.NODE_ENV === "production" ? ".env.prod" : ".env.dev",
+});
+console.log("ENV FILE LETTO:", process.env.DB_USER);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
