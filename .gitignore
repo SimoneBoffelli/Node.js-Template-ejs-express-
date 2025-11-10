@@ -3,7 +3,7 @@ node_modules/
 
 # dotenv configs
 .env.local
-.env.prod
+.env.dev
 
 # logs
 npm-debug.log*
