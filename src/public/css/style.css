@@ -137,6 +137,25 @@ main {
   .icon-moon {
     display: none;
   }
+
+  /* Posizionamento selettore lingua in mobile */
+  #navbarNav {
+    position: relative;
+  }
+
+  .lang-mobile-position {
+    position: absolute;
+    top: 1.5rem;       /* Altezza vicino la voce "Home" */
+    right: 0rem;     /* Allineamento a destra */
+    z-index: 10;
+  }
+
+  /* Minimizzare l’ingombro */
+  .lang-mobile-position .form-select-sm {
+    width: 63px;
+    padding: 2px 4px;
+    font-size: 0.7rem;
+  }
   
 }
 
