@@ -1,10 +1,200 @@
 /* File CSS per overrides personalizzati */
 
+/* ------------------------------------------- */
+/*              Dark/light teme                 */
+/* ------------------------------------------- */
+
+:root {
+  --bg-body: #f8f9fa; /* Sfondo principale */
+  --bg-card: #ffffff; /* Sfondo card */
+  --text-color: #212529; /* Testo principale */
+  --navbar-bg: #0d6efd; /* Navbar light (se vuoi personalizzare) */
+}
+
+/* Tema scuro */
+[data-theme="dark"] {
+  --bg-body: #212529;
+  --bg-card: #2c3034;
+  --text-color: #f8f9fa;
+  --navbar-bg: #000;
+}
+
+/* Applicazione variabili */
+body {
+  background-color: var(--bg-body);
+  color: var(--text-color);
+}
+
+/* Fondo per main gestito tramite variabili */
+main {
+  background-color: var(--bg-body);
+  color: var(--text-color);
+}
+
+/* Rimuovere sfondi predefiniti di Bootstrap in container */
+.container {
+  background-color: transparent;
+}
+
+.card {
+  background-color: var(--bg-card);
+  color: var(--text-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg) !important;
+}
+
+#navbarNav .theme-toggle-wrapper {
+  display: none !important;
+}
+
+/* Dimensionare le icone */
+.theme-toggle-desktop .form-check-input {
+  margin-left: 0 !important;
+  position: static !important;
+}
+
+.icon-theme {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.icon-sun {
+  margin-right: 10px !important;
+}
+
+.icon-moon {
+  margin-left: 10px;
+}
+
+/* Tema chiaro: mostra sole, nascondi luna */
+[data-theme="light"] .icon-sun {
+  opacity: 1;
+  fill: #ffd900;
+}
+[data-theme="light"] .icon-moon {
+  opacity: 0.4;
+  fill: #ffffff;
+}
+
+/* Tema scuro: mostra luna, nascondi sole */
+[data-theme="dark"] .icon-moon {
+  opacity: 1;
+  fill: rgb(86, 154, 255);
+}
+[data-theme="dark"] .icon-sun {
+  opacity: 0.4;
+  fill: #ffffff;
+}
+
+.theme-toggle-mobile-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle-mobile-inner .form-check-input {
+  margin: 0 !important;
+  position: static !important;
+}
+
+/* ------------------------------------------- */
+/*             Multi-language                */
+/* ------------------------------------------- */
+
+.navbar .form-select-sm {
+  width: 70px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+}
 
 
 /* --------------------------------------- */
 /*                MOBILE                   */
 /* --------------------------------------- */
-@media (max-width: 768px) {
-  /* Override mobile */
+
+/* --------------------------------------- */
+/*               TELEFONI PICCOLI (XS)     */
+/* --------------------------------------- */
+@media (max-width: 575px) {
+  /* Ridurre padding della navbar */
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Ridurre grandezza titoli */
+  h1,
+  h2 {
+    font-size: 1.4rem;
+  }
+  .icon-sun {
+    display: none;
+  }
+
+  .icon-moon {
+    display: none;
+  }
+  
+}
+
+/* --------------------------------------- */
+/*                TELEFONI (SM)            */
+/* --------------------------------------- */
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Impostare card al 100% */
+  .card {
+    width: 100%;
+  }
+
+  .icon-sun {
+    margin-right: 2px !important;
+  }
+
+  .icon-moon {
+    margin-left: 2px;
+  }
+}
+
+/* --------------------------------------- */
+/*                 TABLET (MD)             */
+/* --------------------------------------- */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Impostare sidebar visibile sopra contenuto */
+  .sidebar {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* --------------------------------------- */
+/*                 LAPTOP (LG)             */
+/* --------------------------------------- */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Impostare container a larghezza media */
+  .custom-container {
+    max-width: 900px;
+  }
+}
+
+/* --------------------------------------- */
+/*                 DESKTOP (XL)            */
+/* --------------------------------------- */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  /* Impostare spaziatura maggiore tra sezioni */
+  section {
+    padding: 4rem 0;
+  }
+}
+
+/* --------------------------------------- */
+/*             DESKTOP GRANDI (XXL)        */
+/* --------------------------------------- */
+@media (min-width: 1400px) {
+  /* Impostare container più ampio */
+  .custom-container {
+    max-width: 1300px;
+  }
 }

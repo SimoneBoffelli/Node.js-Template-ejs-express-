@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import homeRoutes from "./routes/homeRoutes.js";
 import dbRoutes from "./routes/dbRoutes.js";
 import expressLayouts from "express-ejs-layouts";
+import LanguageService from "./services/LanguageService.js";
+import { defaultLang } from "./lang/languagesRegistry.js";
 
 dotenv.config({
   path: process.env.NODE_ENV === "production" ? ".env.prod" : ".env.dev",
@@ -22,9 +24,21 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(expressLayouts);
 app.set("layout", "layout/main");
-
-// Impostare static
 app.use(express.static(path.join(__dirname, "public")));
+
+// multi-language
+const langService = new LanguageService();
+
+app.use((req, res, next) => {
+  const lang = req.query.lang || defaultLang;
+
+  langService.setLanguage(lang);
+
+  res.locals.t = (path) => langService.t(path);
+  res.locals.currentLang = lang;
+
+  next();
+});
 
 // Routes
 app.use("/", homeRoutes);
