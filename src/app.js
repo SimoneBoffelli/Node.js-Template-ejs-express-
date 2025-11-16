@@ -40,9 +40,31 @@ app.use((req, res, next) => {
   next();
 });
 
+// fallback page title
+app.use((req, res, next) => {
+  res.locals.pageKey = null; // ogni pagina può sovrascriverla
+  next();
+});
+
 // Routes
 app.use("/", homeRoutes);
 app.use("/", dbRoutes);
+
+// Error 404 page
+app.use((req, res) => {
+  res.status(404).render('errors/404', {
+    url: req.originalUrl
+  });
+});
+// Error 500 page
+app.use((err, req, res, next) => {
+  console.error("500 ERROR:", err);
+
+  res.status(500).render("errors/500", {
+    error: err.message || null,
+    currentLang: res.locals.currentLang
+  });
+});
 
 // start server
 app.listen(process.env.PORT, () => {

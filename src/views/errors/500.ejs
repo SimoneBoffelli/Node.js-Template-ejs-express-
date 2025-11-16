@@ -1,0 +1,17 @@
+<%- include('../partials/head') %>
+
+<div class="container text-center my-5">
+  <h1 class="display-4 text-danger"><%= t("errors.error500Title") %></h1>
+  <p class="lead mb-4"><%= t("errors.error500Message") %></p>
+
+  <% if (error) { %>
+    <div class="alert alert-warning text-start mx-auto" style="max-width: 600px;">
+      <strong><%= t("errors.details") %>:</strong><br>
+      <%= error %>
+    </div>
+  <% } %>
+
+  <a href="/?lang=<%= currentLang %>" class="btn btn-primary mt-4">
+    <%= t("errors.backHome") %>
+  </a>
+</div>

@@ -12,5 +12,15 @@ export default {
   },
   footer: {
     rights: " - Sviluppato da Simone Boffelli - Tutti i diritti riservati"
+  },
+  errors: {
+    notFoundTitle: "Pagina non trovata",
+    notFoundMessage: "La pagina che stai cercando non esiste.",
+    requestedUrl: "URL richiesto",
+    backHome: "Torna alla Home",
+
+    error500Title: "Errore interno del server",
+    error500Message: "Si è verificato un errore imprevisto.",
+    details: "Dettagli"
   }
 };
